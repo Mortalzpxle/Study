@@ -1,0 +1,20 @@
+int Max(int x, int y)
+{
+	if (x > y)
+		return x;
+	else
+		return y;
+}
+int main()
+{
+	int num1 = 0;
+	int num2 = 0;
+	int max = 0;
+	printf("输入第一个比较数字a：" );
+	scanf("%d", &num1);
+	printf("输入第二个比较数字b: ");
+	scanf("%d", &num1);
+	max = Max(num1, num2);
+	printf("max = %d\n", max);
+	return 0;
+}
