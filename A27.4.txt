@@ -1,0 +1,36 @@
+int main()
+{
+	double d = 3.14;
+	double* pd = &d;
+	printf("%d\n", sizeof(pd));
+	//*pd = 5.5;
+	//printf("%lf\n", d);
+	//printf("%lf\n", *pd);
+	return 0;
+}
+
+
+
+int main()
+{
+	char ch = 'w';
+	char* pc = &ch;;
+	//printf("%d\n", sizeof(pc));
+	//*pc = 'a';
+	printf("%c\n", *pc);
+	return 0;
+}
+
+
+int main()
+{
+	int a = 0;//4个字节
+	int* p = &a;//取地址
+	//有一种变量是用来存放地址的-指针变量
+	printf("%p\n", &a);
+	printf("%p\n", p);
+	*p = 20;//-解引用操作符
+	printf("%p\n", p);
+	//printf("%p\n", a);
+	//return 0;
+}
