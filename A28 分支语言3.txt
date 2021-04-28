@@ -1,0 +1,25 @@
+int main()
+{
+	int num = 0;
+	printf("输入一个数字: ");
+	scanf("%d", &num);
+		switch(num)
+	{
+		case 1:
+			printf("星期一\n");
+			break;
+		case 2:
+			printf("星期二\n");
+			break; 
+		case 3:
+			printf("星期三\n");
+			break; 
+		case 4:
+			printf("星期四\n");
+			break;
+		default:
+			printf("输入错误，重新输入\n");
+			break;
+	}
+	return 0;
+}
