@@ -1,0 +1,13 @@
+int main()
+{
+	int age = 33;
+	if (age < 18)
+		printf("未成年\n");
+	else if (age >= 18 && age < 30)
+		printf("青年\n");
+	else if (age >= 30 && age < 50)
+		printf("壮年\n");
+	else
+		printf("老年人");
+	return 0;
+}
