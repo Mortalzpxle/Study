@@ -1,0 +1,77 @@
+int main()
+{
+	int x = 0;
+	int ch = 0;
+	int password[20] = { 0 };
+	printf("请输入密码:> ");
+	scanf("%s", password);//输入密码，并存放在password数组中
+	缓存区还剩余一个“\n”
+	用getchar读取一下‘\n’
+	while (x = getchar() != '\n')
+	{
+		;
+	}
+	printf("请确认(Y/N):> ");
+	ch = getchar();//Y/N
+	if (ch == 'Y')
+	{
+		printf("确认成功\n");
+	}
+	else
+	{
+		printf("放弃确认\n");
+	}
+	return 0;
+}
+
+
+int main()
+{
+	int ch = 0;
+	//ctrl + Z
+	//EOF --end of file  -> -1
+	while ((ch = getchar()) != EOF)
+	{
+		putchar(ch);
+	}
+	return 0;
+}
+
+
+
+int main()
+{
+	int a = getchar();
+	putchar(a);
+	return 0;
+}
+
+
+int main()
+{
+	int i = 1;
+	while (i <= 10)
+	{
+		if (5 == i)
+			continue;
+		printf("%d ", i);
+		i++;
+	}
+	return 0;
+}
+
+
+
+
+int main()
+{
+	int i = 1;
+	while (i <= 10)
+	{
+		if (5 == i)
+			break;
+		printf("%d ", i);
+		i++;
+	}
+	return 0;
+}
