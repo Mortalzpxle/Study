@@ -1,0 +1,28 @@
+int main()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	printf("请输入三个数:> ");
+	scanf("%d%d%d", &a, &b, &c);
+	if (a < b)
+	{
+		int st =a;
+		a = b;
+		b = st;
+	}
+	if (a < c)
+	{
+		int st = a;
+		a = c;
+		c = st;
+	}
+	if (b < c)
+	{
+		int st = b;
+		b = c;
+		c = st;
+	}
+	printf("由大到小为:> %d %d %d\n", a, b, c);
+	return 0;
+}
