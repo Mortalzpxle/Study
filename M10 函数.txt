@@ -1,0 +1,89 @@
+void Swap2(int* x, int* y)//void 代表没有返回值
+{
+	int xx = 0;
+	xx = *x;
+	*x = *y;
+	*y = xx;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	printf("请输入需要调换的两个数字:> ");
+	scanf("%d %d", &a, &b);
+	printf("a=%d b=%d\n", a, b);
+	Swap2(&a, &b);
+	//int* x=&a;//x指针变量
+	//*x = 20;//解引用操作
+	printf("a=%d b=%d\n", a, b);
+	return 0;
+}
+
+
+
+这种操作有问题
+void Swap1(int x, int y)//void 代表没有返回值
+{
+	int xx = 0;
+	xx = x;
+	x = y;
+	y = xx;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	printf("请输入需要调换的两个数字:> ");
+	scanf("%d %d", &a, &b);
+	printf("a=%d b=%d\n", a, b);
+	Swap1(a, b);
+	printf("a=%d b=%d\n", a, b);
+	return 0;
+}
+
+
+
+
+int get_max(int x, int y)
+{
+	if (x > y)
+		return x;
+	else
+		return y;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	printf("请输入想要比较的数字:> ");
+	scanf("%d %d", &a, &b);
+	int max = get_max(a, b);
+	printf("max = %d\n", max);
+	//max = get_max(100,200);
+	//printf("max = %d\n",max);
+	return 0;
+}
+
+
+
+
+//memset - memory - 内存  set - 设置
+int main()
+{
+	char arr[] = "hello world";
+	memset(arr, '*', 5);
+	printf("%s\n", arr);
+	return 0;
+}
+
+
+int main()
+{
+	char arr1[] = "xxx";
+	char arr2[] = "dddd";
+	strcpy(arr2, arr1);//最后的\0也会拷贝过去
+	printf("%s\n", arr2);
+	return 0;
+}
+//strcpy - string copy - 字符串拷贝
+//strlen - string length - 字符串长度计算
