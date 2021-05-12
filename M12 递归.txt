@@ -1,0 +1,64 @@
+int my_strlen(char* str)
+{
+	if (*str != '\0')
+
+		return 1 + my_strlen(str + 1);
+	else
+		return 0;
+}
+int main()
+{
+	char arr[] = "bit";
+	//int len = strlen(arr);//求字符串长度
+	//printf("%d\n",len);
+
+	//模拟实现了strlen函数
+	int len = my_strlen(arr);//arr是数组，数组传参，传过去的不是整个数组，而是第一个元素的地址
+	printf("len = %d\n", len);
+	return 0;
+}
+
+
+
+
+int my_strlen(char* str)
+{
+	int count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+int main()
+{
+	char arr[] = "bit";
+	//int len = strlen(arr);//求字符串长度
+	//printf("%d\n",len);
+
+	//模拟实现了strlen函数
+	int len = my_strlen(arr);//arr是数组，数组传参，传过去的不是整个数组，而是第一个元素的地址
+	printf("len = %d\n", len);
+	return 0;
+}
+
+
+
+
+void print(int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", n % 10);
+}
+int main()
+{
+	unsigned int num = 0;
+	scanf("%d", &num);
+	//递归
+	print(num);
+	return 0;
+}
