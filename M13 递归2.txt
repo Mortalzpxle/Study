@@ -1,0 +1,82 @@
+//用循环描述第n个斐波那契数列
+int Fib(int n)
+{
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 2)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
+}
+int main()
+{
+	
+	int n = 0;
+	int ret = 0;
+	printf("输入想要计算斐波那契数：");
+	scanf("%d", &n);
+	//TDD - 测试驱动开发
+	ret = Fib(n);
+	printf("%d\n", ret);
+	return 0;
+}
+
+
+
+
+//用递归描述第n个斐波那契数列
+int Fib(int n)
+{
+	if (n <= 2)
+		return 1;
+	else
+		return Fib(n - 1) + Fib(n - 2);
+}
+int main()
+{
+	
+	int n = 0;
+	int ret = 0;
+	printf("输入想要计算斐波那契数：");
+	scanf("%d", &n);
+	ret = Fib(n);
+	printf("%d\n", ret);
+	return 0;
+}
+
+
+
+
+int Fac1(int n)
+{
+	int i = 0;
+	int ret = 1;
+	for (i = 1; i <= n; i++)
+	{
+		ret *= i;
+	}
+	return ret;
+}
+int Fac2(int n)
+{
+	if (n <= 1)
+		return 1;
+	else
+		return n * Fac2(n - 1);
+}
+int main()
+{
+	//求N的阶乘
+	int n = 0;
+	int ret = 0;
+	printf("输入想要计算的阶乘：");
+	scanf("%d", &n);
+	ret = Fac2(n);//循环的方式
+	printf("%d\n", ret);
+	return 0;
+ }
