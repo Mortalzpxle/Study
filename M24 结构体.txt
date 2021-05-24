@@ -1,0 +1,120 @@
+//描述一个学生，一些数据
+//名字  年龄  电话   性别
+//struct结构体关键字  stu - 结构体标签  struct stu - 结构体类型
+struct stu
+{
+	//成员变量
+	char name[20];
+	short age;
+	char tale[12];
+	char sex[5];
+}s1,s2,s3;//s1,s2,s3,是三个全局的结构体变量
+
+int main()
+{
+	struct stu s;//局部变量
+	return 0;
+}
+
+
+
+
+typedef struct stu
+{
+	//成员变量
+	char name[20];
+	short age;
+	char tale[12];
+	char sex[5];
+}stu;//stu 是类型
+
+int main()
+{
+	struct stu s1;//局部变量
+	stu s2;//使用typedef 两种都可以用了  
+	return 0;
+}
+
+
+
+
+
+typedef struct stu
+{
+	//成员变量
+	char name[20];
+	short age;
+	char tale[12];
+	char sex[5];
+}stu;//stu 是类型
+
+int main()
+{
+	//初始化
+	struct stu s1 = { "张三",20,"31231231234","男" };
+	stu s2 = { "旺财",30,"12312413215","保密" };
+	return 0;
+}
+
+
+
+
+
+struct S
+{
+	int a;
+	int b;
+	char arr[20];
+	double d;
+};
+
+struct T
+{
+	char ch[10];
+	struct S s;
+	char* pc;
+};
+
+int main()
+{
+	char arr[] = "hello bit\n";
+	struct T t = { "hehe",{100,'w',"hello world",3.14},arr };
+	printf("%s\n", t.ch);//hehe
+	printf("%s\n", t.s.arr);//hello world
+	printf("%lf\n", t.s.d);//3.14
+	printf("%s\n", t.pc);//hello bit
+	return 0;
+}
+
+
+
+typedef struct stu
+{
+	//成员变量
+	char name[20];
+	short age;
+	char tale[12];
+	char sex[5];
+}stu;//stu 是类型
+
+void print1(stu tmp)
+{
+	printf("name: %s\n", tmp.name);
+	printf("age:  %d\n", tmp.age);
+	printf("tale: %s\n", tmp.tale);
+}
+
+void print2(stu* ps)
+{
+	printf("name: %s\n", ps->name);
+}
+
+int main()
+{
+	stu s = { "张三",20,"31231231234","男" };
+	//打印结构体数据
+	//print2比print1更好，不用开辟新的空间
+	print1(s);
+	print2(&s);
+	return 0;
+}
