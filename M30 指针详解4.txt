@@ -1,0 +1,64 @@
+//函数指针
+
+////signal是一个函数声明
+////signal函数的参数有2个，第一个是int。第二个事函数指针，该函数指针指向的函数的参数是int，返回类型是void
+////signal函数的返回类型也是一个函数指针，该函数指针指向的函数的参数是int,返回类型是void
+//void(*signal(int, void(*)(int)))(int);
+//
+//
+////简化版
+//typedef void(*pfun_t)(int);
+//pfun_t signal(int, pfun_t);
+
+
+//int Add(int x, int y)
+//{
+//	int z = 0;
+//	z = x + y;
+//	return z;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//
+//	int(*pa)(int, int) = Add;
+//	printf("%d\n", Add(a, b));
+//	printf("%d\n", pa(2, 4));
+//	printf("%d\n", (pa)(2, 4));
+//	printf("%d\n", (*pa)(2, 4));
+//	printf("%d\n", (**pa)(2, 4));
+//	printf("%d\n", (***pa)(2, 4));
+//	return 0;
+//}
+
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	return x / y;
+//}
+//int main()
+//{
+//	//指针数组
+//	int* arr[5];//
+//	//需要一个数组，这个数组可以存放4个函数的地址 - 函数指针的数组
+//	int(*pa)(int, int) = Add;
+//	int(*parr[4])(int, int) = { Add,Sub,Mul,Div };//函数指针的数组
+//	int i = 0;
+//	for (i = 0; i < 4; i++)
+//	{
+//		printf("%d\n", parr[i](2, 4));
+//	}   
+//	return 0;
+//}
