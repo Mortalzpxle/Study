@@ -1,0 +1,83 @@
+////回调函数
+//void Calc(int(*pf)(int, int))
+//{
+//	int x = 0;
+//	int y = 0;
+//	printf("请输入两个操作数： ");
+//	scanf("%d%d", &x, &y);
+//	printf("%d\n", pf(x, y));
+//}
+//int main()
+//{
+//	int input = 0;
+//
+//	do
+//	{
+//		menu();
+//		printf("请选择： ");
+//		scanf("%d", &input);
+//
+//		switch (input)
+//
+//		{
+//		case 1:
+//			Calc(Add);
+//			break;
+//		case 2:
+//			Calc(Sub);
+//			break;
+//		case 3:
+//			Calc(Mul);
+//			break;
+//		case 4:
+//			Calc(Div);
+//			break;
+//		case 0:
+//			printf("退出\n" );
+//			break;
+//		default:
+//			printf("选择错误\n");
+//			break;
+//		}
+//	} while (input);
+//}
+
+
+//void print(const char* str)
+//{
+//	printf("hehe:%s", str);
+//}
+//void test(void(*p)(const char*))
+//{
+//	printf("test\n");
+//	p("bit");
+//}
+//int main()
+//{
+//	test(print);
+//	return 0;
+//}
+
+
+
+
+
+//// 指向函数指针数组的指针
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int(*p)[10] = &arr;//取出数组的地址
+//
+//	int(*pfArr[4])(int, int);//pfArr是一个数组 - 函数指针的数组
+//	//ppfArr是一个指向 【函数指针数组】的指针
+//	int(*(*pfArr)[4])(int, int) = &pfArr;
+//	//
+//	//ppfArr 是一个数组指针，指针指向的数组有4个元素
+//	//指向的数组的每个元的类型是一个函数指针int（*）(int ,int)
+//	//
+//	return 0;  
+//}
