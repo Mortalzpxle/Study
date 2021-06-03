@@ -1,0 +1,101 @@
+#include<stdlib.h>
+#include"Add.h"
+
+
+
+struct Stu
+{
+	char name[20];
+	int age;
+};
+ 
+//int cmp_stu_by_age(const void* e1, const void* e2)
+//{
+//	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;
+//}
+//int cmp_stu_by_name(const void* e1, const void* e2)
+//{
+//	//比较名字就是比较字符串
+//	//字符串比较不能用 <  >  =  来比较，应该用strcmp函数
+//	return strcmp(((struct Stu*)e1)->name , ((struct Stu*)e2)->name);
+//}
+//void test3()
+//{
+//	struct Stu s[] = { {"zhangsan",20},{"lisi",30},{"wangwu",10} };
+//	int sz = sizeof(s) / sizeof(s[0]);
+// 
+//	qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);
+// //第一个参数，待排序驻足的首元素地址
+// //第二个参数，待排序数组的元素个数
+// //第三个参数，待排序数组的每个元素的大小 - 单位是字节
+// //第四个参数，是函数指针，比较两个元素的所用函数的地址 - 这个函数使用者资质实现
+// //            函数指针的两个参数是：待比较的两个元素的地址
+// 
+//	//int j = 0;
+//	//for (j = 0; j < sz; j++)
+//	//{
+//	//	printf(" ", s[j]);
+//	//}
+//}
+void Swap(char* buf1, char* buf2, int width)
+{
+	int i= 0;
+	for (i = 0; i < width; i++)
+	{
+		char tmp = *buf1;
+		*buf1 = *buf2;
+		*buf2 = tmp;
+		buf1++;
+		buf2++;
+	}
+}
+void bubble_sort(void* base, int sz, int width,int(*cmp)(void*e1,void*e2))
+{
+	int i = 0;
+	//趟数
+	for (i = 0; i < sz-1; i++)
+	{
+		//每一趟比较的对数
+		int j = 0;
+		for (j = 0; j < sz - 1 - i; j++)
+		{
+			//两个元素比较
+			if (cmp((char*)base+j*width,(char*)base+(j+1)*width) > 0)
+			{
+				//交换
+				Swap((char*)base + j * width, (char*)base + (j + 1) * width,width);
+			}
+		}
+	}
+}
+
+//void test4()
+//{
+//	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz, sizeof(arr[0]), );
+//}
+
+int cmp_stu_by_age( void* e1,  void* e2)
+{
+	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;
+}
+int cmp_stu_by_name( void* e1, void* e2)
+{
+	//比较名字就是比较字符串
+	//字符串比较不能用 <  >  =  来比较，应该用strcmp函数
+	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
+}
+void test5()
+{
+	struct Stu s[] = { {"zhangsan",20},{"lisi",30},{"wangwu",10} };
+	int sz = sizeof(s) / sizeof(s[0]);
+	//bubble_sort(s, sz, sizeof(s[0]), cmp_stu_by_age);
+	bubble_sort(s, sz, sizeof(s[0]), cmp_stu_by_name);
+
+}
+int main()
+{
+	test5();
+	return 0;
+}
