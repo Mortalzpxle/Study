@@ -1,0 +1,19 @@
+//声明一个结构体类型
+
+struct Stu
+{
+	char name[20];
+	char tale[12];
+	char sex[10];
+	int age;
+}s4, s5, s6;//全局变量
+
+struct Stu s3;//全局变量
+
+int main()
+{
+	//创建的结构体变量 - 局部变量
+	struct Stu s1;
+	struct Stu s2;
+	return 0;
+}
