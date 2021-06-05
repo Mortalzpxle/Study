@@ -1,0 +1,30 @@
+//typedef struct stu
+//{
+//	//成员变量
+//	char name[20];
+//	short age;
+//	char tale[12];
+//	char sex[5];
+//}stu;//stu 是类型
+//
+//void print1(stu tmp)
+//{
+//	printf("name: %s\n", tmp.name);
+//	printf("age:  %d\n", tmp.age);
+//	printf("tale: %s\n", tmp.tale);
+//}
+//
+//void print2(stu* ps)
+//{
+//	printf("name: %s\n", ps->name);
+//}
+//
+//int main()
+//{
+//	stu s = { "张三",20,"31231231234","男" };
+//	//打印结构体数据
+//	//print2比print1更好，不用开辟新的空间
+//	print1(s);
+//	print2(&s);
+//	return 0;
+//}
