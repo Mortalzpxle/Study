@@ -1,0 +1,40 @@
+
+////结构体传参
+//
+//struct S
+//{
+//	int a;
+//	char c;
+//	double d;
+//};
+//void Init(struct S*ps)
+//{
+//	ps->a = 100;
+//	ps->c = 'w';
+//	ps->d = 3.14;
+//	//tmp.a = 100;
+//	//tmp.c = 'w';
+//	//tmp.d = 3.14;
+//}
+//
+////传值
+//void Print1(struct S tmp)
+//{
+//	printf("%d\n %c\n %lf\n", tmp.a, tmp.c, tmp.d);
+//}
+//
+////传址  这种方法更好
+//void Print2(struct S*ps)
+//{
+//	printf("%d\n %c\n %lf\n", ps->a , ps->c,ps->d);
+//}
+//
+//int main()
+//{
+//	struct S s;
+//	Init(&s);
+//	Print1(s);
+//	Print2(&s);
+//
+//
+//	return 0;-
