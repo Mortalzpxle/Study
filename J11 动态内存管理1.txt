@@ -1,0 +1,32 @@
+int main()
+{
+	//向内存申请10个整形的空间
+	//int* p = (int*)malloc(10 * sizeof(int));
+	int* p = (int*)malloc(40);
+	if (p == NULL)
+	{
+		//打印错误原因的一个方式
+		printf("%s\n", strerror(errno));
+	}
+	else
+	{
+		//正常使用空间
+		int i = 0;
+		for (i = 0; i < 10; i++)
+		{
+			*(p + i) = i;
+		}
+		for (i = 0; i < 10; i++)
+		{
+			printf("%d ", *(p + i));
+		}
+
+	} 
+	//当动态申请的空间不再使用的时候
+	//就应该还给系统
+	free(p);
+
+	p = NULL;//将地址赋值空，就能防止地址被乱用
+	
+	return 0;
+}
