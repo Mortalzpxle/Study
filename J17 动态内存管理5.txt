@@ -1,0 +1,85 @@
+//struct S
+//{
+//	int n;
+//	int arr[];//未知大小的
+//};
+//struct S
+//{
+//	int n;
+//	int arr[0];//与上一种一样 - 柔性数组成员 - 数组的大小是可以调整的
+//};
+//
+//int main()
+//{
+//	/*struct S s;*/
+//
+//	struct S* ps = (struct S*)malloc(sizeof(struct S) + 5 * sizeof(int));//5就是自己想要的大小
+//	//也就是说 n有4个字节 一个整形  开辟了一个新的是arr的空间大小 为20个字节 5个整型
+//
+//	//调整大小
+//	ps->n = 100;
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		ps->arr[i] = i;//0 1 2 3 4
+//	}
+//
+//	struct S* ptr = realloc(ps, 44);
+//	if (ptr != NULL)
+//	{
+//		ps = ptr;
+//	}
+//	for (i = 0;i < 10;i++)
+//	{
+//		printf("%d ", ps->arr[i]);
+//	}
+//	return 0;
+//
+//}
+
+
+
+//第二种方法
+//对比柔性数组，柔性数组更好用，有更少的碎片空间，而且是连续的空间，效率跟高
+
+struct S
+{
+	int n;
+	int* arr;
+};
+
+int main()
+{
+	struct S*ps = (struct S*)malloc(sizeof(struct S));
+	ps->arr = malloc(5 * sizeof(int));
+	int i = 0;
+	for (i = 0; i < 5; i++)
+	{
+		ps->arr[i]=i;
+	}
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d ", ps->arr[i]);
+	}
+    //调整大小
+	int *ptr = realloc(ps->arr, 10 * sizeof(int));
+	if (ptr != NULL)
+	{
+		ps->arr = ptr;
+	}
+	for (i = 5; i < 10; i++)
+	{
+		ps->arr[i] = i;
+	}
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", ps->arr[i]);
+	}
+	free(ps->arr);
+	ps->arr = NULL;
+	free(ps);
+	ps = NULL;
+
+
+	return 0;
+}
