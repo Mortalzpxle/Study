@@ -1,0 +1,54 @@
+// 1、无头+单向+非循环链表增删查改实现
+typedef int SLTDateType;
+typedef struct SListNode
+{
+ SLTDateType data;
+ struct SListNode* next; }SListNode;
+// 动态申请一个节点
+SListNode* BuySListNode(SLTDateType x);
+// 单链表打印
+void SListPrint(SListNode* plist);
+// 单链表尾插
+void SListPushBack(SListNode** pplist, SLTDateType x);
+// 单链表的头插
+void SListPushFront(SListNode** pplist, SLTDateType x);
+// 单链表的尾删
+void SListPopBack(SListNode** pplist);
+// 单链表头删
+void SListPopFront(SListNode** pplist);
+// 单链表查找
+1.反转单链表：https://leetcode-cn.com/problems/reverse-linked-list/
+2.链表的中间结点：https://leetcode-cn.com/problems/middle-of-the-linked-list/ 
+3.合并两个有序链表：https://leetcode-cn.com/problems/merge-two-sorted-lists/ 
+SListNode* SListFind(SListNode* plist, SLTDateType x);
+// 单链表在pos位置之前插入x
+void SListInsert(SListNode** pplist, SListNode* pos, SLTDateType x);
+// 单链表删除pos位置的值
+void SListErase(SListNode** pplist, SListNode* pos);
+// 2、带头+双向+循环链表增删查改实现
+typedef int LTDataType;
+typedef struct ListNode
+{
+ LTDataType _data;
+ struct ListNode* _next;
+ struct ListNode* _prev; }ListNode;
+// 创建返回链表的头结点.
+ListNode* ListCreate();
+// 双向链表销毁
+void ListDestory(ListNode* plist);
+// 双向链表打印
+void ListPrint(ListNode* plist);
+// 双向链表尾插
+void ListPushBack(ListNode* plist, LTDataType x);
+// 双向链表尾删
+void ListPopBack(ListNode* plist);
+// 双向链表头插
+void ListPushFront(ListNode* plist, LTDataType x);
+// 双向链表头删
+void ListPopFront(ListNode* plist);
+// 双向链表查找
+ListNode* ListFind(ListNode* plist, LTDataType x);
+// 双向链表在pos的前面进行插入
+void ListInsert(ListNode* pos, LTDataType x);
+// 双向链表删除pos位置的节点
+void ListErase(ListNode* pos);
