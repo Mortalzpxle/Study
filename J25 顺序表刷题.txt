@@ -1,0 +1,16 @@
+bool Del_s_t2(SqList& L, ElemType s, ElemTyoe t)
+{
+	//删除有序顺序表L中值在给定值s与t之间的所有元素
+	int i, j;
+	if (s >= t || L.length == 0)
+		return false;
+	for (i = 0; i < L.length && L.data[i] < s; i++);
+	if (i >= L.length)
+		return false;
+	for (j = i; j < L.length && L.data[j] <= t; j++);
+	for (; j < L.length; i++, j++)
+		L.data[i] = L.data[j];
+	L.length = i;
+	return true;
+
+}
