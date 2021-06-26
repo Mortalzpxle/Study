@@ -36,3 +36,5 @@ public:
         return A[A.size() / 2];
     }
 };
+
+
