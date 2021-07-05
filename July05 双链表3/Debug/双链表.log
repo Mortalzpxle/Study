@@ -1,0 +1,6 @@
+﻿  List.c
+E:\VS\双链表\List.c(72,25): warning C4020: “ListErase”: 实参太多
+E:\VS\双链表\List.c(91,25): warning C4020: “ListErase”: 实参太多
+  Test.c
+  正在生成代码...
+  双链表.vcxproj -> E:\VS\双链表\Debug\双链表.exe
