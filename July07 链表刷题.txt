@@ -1,0 +1,143 @@
+//将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的
+
+//输入：l1 = [1,2,4], l2 = [1,3,4]
+//输出：[1, 1, 2, 3, 4, 4
+
+//思路：从头开始，取两个链表中笑的那个尾插到新链表
+
+struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2)
+{
+	if (l1 == NULL)
+		return l2;
+
+	if (l2 == NULL)
+		return l1;
+
+	struct ListNode* head = NULL, * tail = NULL;
+	while (l1 != NULL && l2 !== NULL)
+	{
+		//尾插
+
+		if (l1->val < l2->val)
+		{
+			if (taill == NULL)
+			{
+				head = tail = l1;
+			}
+			else
+			{
+				tail->next = l1;
+				tail = tail->next;
+			}
+			l1 = l1->next;
+		}
+		else
+		{
+			if (tail == NULL)
+			{
+				head = tail = l2;
+			}
+			else
+			{
+				tail->next = l2;
+				tail = tail->next;
+			}
+			l2 = l2->next;
+		}
+	}
+	if (l1)
+		tail->next = l1;
+
+	if (l2)
+		tail->next = l2;
+
+	return head;
+
+}
+
+//第二种，带哨兵位
+struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2)
+{
+	if (l1 == NULL)
+		return l2;
+
+	if (l2 == NULL)
+		return l1;
+
+	struct ListNode* head = NULL, * tail = NULL;
+	//哨兵位
+	head = tail = (struct ListNode*)malloc(sizeof(struct ListNdoe));
+
+	while (l1 != NULL && l2 != = NULL)
+	{
+		//尾插
+
+		if (l1->val < l2->val)
+		{
+
+				tail->next = l1;
+				tail = tail->next;
+
+		}
+		else
+		{
+				tail->next = l2;
+				tail = tail->next;
+		}
+		tail = tail->next;
+	}
+	if (l1)
+		tail->next = l1;
+
+	if (l2)
+		tail->next = l2;
+
+	struct ListNode* first = head->next;
+	free(head);
+
+	return first;
+
+}
+
+
+
+//给定一个链表，判断链表中是否有环。
+//
+//如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 
+// 为了表示给定链表中的环，
+// 我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。
+// 如果 pos 是 - 1，则在该链表中没有环。
+// 注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
+//
+//如果链表中存在环，则返回 true 。 否则，返回 false
+
+
+//使用快慢指针
+
+bool hasCycle(struct ListNode* head) 
+{
+	struct ListNode* slow = head, * fast = head;
+	while (fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+
+		if (slow == fast)//带环相遇
+			return true;
+	}
+	return false;
+}
+
+
+//提升：1.请证明slow和fast一定会在环里面相遇？
+//      2.slow一次走一步，fast一次走3步行不行
+//        slow一次走一步，fast一次走4步行不行 请证明
+
+//结论：1，slow一次走1步，fast一次走2步，一定能追上，slow进环以后fast正式开始追逐
+           /*假设他们之间的距离为N，每走一次距离则为N-1,N次后便相遇*/
+
+  /*      2.slow一次走一步，fast一次走3步，slow进环以后fast正式开始追逐
+		  不一定会追上，可能还会进入死循环，永远也追不上。
+		假设距离为N ,若N为奇数，则最后等于0，则可能相遇
+		如果是奇数，则可能为-1，代表fast反超了slow,则距离为C-1,C为环的长度
+		如果C-1是偶数，就能追上，如果C-1是奇数，则永远追不上 */
