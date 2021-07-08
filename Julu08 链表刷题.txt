@@ -1,0 +1,25 @@
+//结论：一个指针从Meet点开始走，一个指针从链表开始走，他们会在入口点相遇。
+//推出的结论，L+n*C+X = 2(L+X)
+//              fast     slow
+struct ListNode* detectCycle(struct ListNode* head) 
+{
+	struct ListNode* slow = head, * fast = head;
+	while (fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+
+		// 推到的结论一个指针从相遇点开始走，一个指针从head走，他们会在入口点相遇
+		if (slow == fast)
+		{
+			struct ListNode* meet = slow;
+			while (head != meet)
+			{
+				head = head->next;
+				meet = meet->next;
+			}
+			return meet;
+		}
+	}
+	return NULL;
+}
