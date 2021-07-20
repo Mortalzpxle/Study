@@ -1,0 +1,21 @@
+//线性表05 33,00
+//设计一个算法，从一给定的顺序表L中删除下标为i~j(i<j,包括i,j)的所有元素，假定i,j是合法的
+void del(int arr[], int& length, int i, int j)
+{
+    int k, delta;
+    delta = j - i + 1;
+    for (k = j + 1; k < length; ++k)
+        arr[k - delta] = arr[k];
+    length -= delta;
+}
+
+int main()
+{
+    int A[] = { 1,2,3,4,5,6,7,8,9,10 };
+    int length = 10;
+    del(A, length, 3, 5);
+    for (int i = 0; i < length; ++i)
+        cout << A[i] << " ";
+    cout << endl << length;//输出顺序表的长度
+    return 0;
+}
