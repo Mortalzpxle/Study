@@ -1,0 +1,32 @@
+//在顺序表中寻找最大值和他的下标
+
+int main()
+{
+	int max= a[0];
+	int maxIDx = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (max < a[i])
+		{
+			max = a[i];
+			maxIDx = i;
+		}
+	}
+	return maxIDx;
+}
+
+
+//在链表中寻找最大值和下标
+
+LNode* p, * q;
+int max = head->next->data;
+q = p = head->next;
+while (p != NULL)
+{
+	if (max < p->data)
+	{
+		max = p->data;
+		q = p;
+	}
+	p = p->next;
+}
