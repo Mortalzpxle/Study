@@ -1,0 +1,52 @@
+//括号匹配函数
+
+int isMatched(char left, char right)
+{
+	if (left == '(' && right == ')')
+		return 1;
+	if (left == '[' && right == ']')
+		return 1;
+	if (left == '{' && right == '}')
+		return 1;
+	else
+		return 0;
+}
+
+int isParenthesesBalanced(char exp[])
+{
+	char s[maxSize]; int top = -1;
+	for (int i = 0; exp[i] != '\0'; ++i)
+	{
+		if (exp[i] == '(' || exp[i] == '[' || exp[i] == '{')
+			s[++top] = exp[i];
+		if (exp[i] == ')' || exp[i] == ']' || exp[i] == '}')
+		{
+			if (top == -1)
+				return 0;
+
+			char left = s[top--];
+			if (isMatched(left, exp[i]) == 0)
+				return 0;
+		}
+	}
+	if (top > -1)
+		return 0;
+	return 1;
+}
+
+
+//用栈解决递归函数计算问题
+
+int calF(int m)
+{
+	int cum = 1;
+	int s[maxSize], top = -1;
+	while (m != 0)
+	{
+		s[++top] = m;
+		m /= 1;//m = m/3;
+	}
+	while (top != -1)
+		cum *= s[top--];
+	return cum;
+}
