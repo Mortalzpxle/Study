@@ -1,0 +1,29 @@
+//将两个有序顺序表合并为一个有序的顺序表
+
+//算法思想：首先，按顺序不断取下两个顺序表表头较小的结点存入新的顺序表中，
+//最后看哪个表还有剩余，将剩下部分加到新顺序表后面
+
+bool Merge(SeqList A, SeqList B, SeqList& C)//将两个有序顺序表A,B合并为有序顺序表C
+{
+	//如果大于顺序表的最大长度
+	if (A.length + B.length > C.length)
+		return false;
+	int i = 0, j = 0, k = 0;
+
+	while (i < A.length && j < B.length)
+	{
+		//循环，两两比较，小者存入结果表
+		if (A.data[i] <= B.data[j])
+			C.data[k++] = A.data[i++];
+		else
+			C.data[k++] = B.data[j++];
+
+	}
+	//还有剩余的数，直接存入
+	while (i < A.length)
+		C.data[k++] = A.data[i++];
+	while (j < C.length)
+		C.data[k++] = B.data[j++];
+	C.length = k;
+	return true;
+}
