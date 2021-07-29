@@ -1,0 +1,34 @@
+typedef struct LNode
+{
+	int data;
+	struct LNode* link;
+}*LinkList;
+int Searchk(LinkList list, int k)
+{
+	LinkList p, q;
+	int count = 0;
+	p = q = list->link;
+	while (p != NULL)
+	{
+		if (count < k)
+		{
+			count++;
+			q = q->link;
+		}
+		else
+			p = p->link;
+		
+
+	}
+	if (count < k)
+		return (0);
+	else
+	{
+		printf("%d", q->data);
+		return (1);
+	}
+}
+int main()
+{
+	Searchk;
+}
