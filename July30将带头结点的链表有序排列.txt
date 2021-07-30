@@ -1,0 +1,19 @@
+int sort(LinkList*& L)
+{
+	LinkList* P, * pre, * q;
+	p = L->next->next;
+	L->next->next = NULL;
+	while (p != NULL)
+	{
+		q = p->next;
+		pre = L;
+		while (pre->next != NULL && pre->next->data < p->data)
+			pre = pre->next;
+		p->next = pre->next;
+		pre->next = p;
+		p = q;
+	}
+
+
+
+}
