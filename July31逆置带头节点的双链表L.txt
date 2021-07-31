@@ -1,0 +1,16 @@
+//逆置带头节点的双链表L
+void reverse(DLinkList*& L)
+{
+	DLinkList* p = L->next, * q;
+	L->next = NULL;
+	while (p != NULL)
+	{
+		q = p->next;
+		p->next = L->next;
+		if (L->next != NULL)
+			L->next->prior = p;
+		L->next = p;
+		p->prior = L;
+		p = q;
+	}
+}
