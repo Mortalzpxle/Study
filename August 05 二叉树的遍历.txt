@@ -1,0 +1,35 @@
+//二叉树的节点（链式存储）
+
+typedef struct BiTNode {
+	char data;
+	struct BiTNode* lchile, * rchile;
+}BiTNode,*BiTree;
+
+//链式队列节点
+typedef struct LinkNode {
+	BiTNode* data;//存指针而不是节点
+	struct LinkNode* next;
+}LinkNode;
+
+typedef struct {
+	LinkNode* front, * rear;//队头队尾
+}LinkQueue;
+
+//入队函数
+void EnQueue(BiTree* Q, BiTree node) {
+	Q[rear++] = node;
+}
+//出队函数
+BiTNode* DeQueue(BiTNode** Q) {
+	return Q[front++];
+}
+//输出函数
+void displayNode(BiTree node) {
+	printf("%d ", node->data);
+}
+
+void LevelOrder(BiTree T) {
+	LinkQueue Q;
+	InitQueue(Q);
+
+}
