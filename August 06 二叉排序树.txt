@@ -1,0 +1,27 @@
+//二叉排序树（BST）
+
+typedef struct BSTNode {
+	int key;
+	struct BSTNode* lchile, * rchild;
+}BSTNode,*BSTree;
+
+//在二叉树排序树中查找值为 key 的结点（非递归）
+BSTNode* BST_Search(BSTree T, int key) {
+	while (T != NULL && key != T->key) { //若树空或等于根节点值，则结束循环
+		if (key < T->key)T = T->lchile;  //小于，则在左子树上查找
+		else T = T->rchild;              //大于，则在右子树上查找
+	}
+	return T;
+}
+
+//（递归实现）
+BSTNode* BST_Search(BSTree T, int key) {
+	if (T == NULL)
+		return NULL;//查找失败
+	if (key == T->key)
+		return T;   //查找成功
+	else if (key < T->key)
+		return BST_Search(T->lchile, key);  //在左子树中找
+	else
+		return BST_Search(T->rchild, key);  //在右子树中找
+}
