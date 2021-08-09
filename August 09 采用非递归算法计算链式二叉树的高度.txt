@@ -1,0 +1,23 @@
+//采用非递归算法计算链式二叉树的高度
+//采用层次遍历的算法
+int Btdepth(BiTree T) {
+	if (!T)
+		return 0;
+	int front = -1, rear = -1;
+	int last = 0, level = 0;
+	BiTree Q[MaxSize];
+	Q[++rear] = T;
+	BiTree p;
+	while (front < rear) {
+		p = Q[++front];
+		if (p->lchild)
+			Q[++rear] = p->lchile;
+		if (p->rchild)
+			Q[++rear] = p->rchile;
+		if (front == last) {
+			level++;
+			last = rear;
+		}
+	}
+	return level;
+}
