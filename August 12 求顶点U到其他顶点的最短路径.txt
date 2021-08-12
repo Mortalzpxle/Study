@@ -1,0 +1,22 @@
+//求顶点U到其他顶点的最短路径
+
+void BFS_MIN_Distance(Graph G, int u) {
+	//d[i]表示从U到I结点的最短路径
+	for (i = 0; i < G.vexnum; ++i) {
+		d[i] = ∞;       //初始化路径长度
+		path[i] = -1;    //最短路径从哪个顶点过来
+
+	}
+d[u] = 0;
+visited[u] = TRUE;
+EnQueue(Q, u);
+while (!isEmpty(Q)) {     //BFS算法主过程
+	DeQueue(Q, u);        //队头元素U出队
+	for(w=FirstNeighbor(G,u);w>=0;w=NextNeighbor(G,u,w))
+		if (!visited[w]) {           //W为U的尚未访问的邻接顶点
+			d[w] = d[u] + 1;         //路径长度加1
+			path[w] = u;             //最短路径应从U到W
+			visited[w] = TRUE;       //设已访问标记
+			EnQueue(Q, w);           //顶点W入队
+		}//if
+}//while
