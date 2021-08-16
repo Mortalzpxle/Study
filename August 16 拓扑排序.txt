@@ -1,0 +1,22 @@
+//拓扑排序
+
+bool TopologicalSort(Graph G) {
+	InitStack(S);
+	for (int i = 0; i < G.vexnum; i++)
+		if (indegree[i] == 0)
+			push(S, i);
+	int count = 0;
+	while (!IsEmpty(S)) {
+		pop(S, i);
+		print[count++] = i;
+		for (p = G.vertices[i].firstarc; p = p->nextarc) {
+			v = p->adjvex;
+			if (!(--indegree[v]))
+				push(S, v);
+		}
+	}//while
+	if (count < G.vexnum)
+		return false;
+	else
+		return true;
+}
