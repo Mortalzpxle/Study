@@ -1,0 +1,17 @@
+非递归算法 深度优先遍历
+void DFS_Non_RC(AGraph & G, int v) {
+	int w;
+	InitStack(S);
+	for (i = 0; i  G.vexnum; i++)
+		visited[i] = FALSE;
+	Push(S, v); visited[v] = TRUE;
+	while (!IsEmpty(S)) {
+		k = Pop(S);
+		visit(k);
+		for(w=FirstNeighbor(G,k);w=0;w=NexNeighor(G,k,w))
+			if (!visited[w]) {
+				Push(S, w);
+				visited[w] = true;
+			}if
+	}while
+}DFS_Non_RC
